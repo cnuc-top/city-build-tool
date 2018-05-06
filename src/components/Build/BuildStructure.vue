@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
   .structure {
     margin: 0 auto;
     position: relative;
@@ -44,7 +45,7 @@
   #structure-layers {
     fill: rgba(0, 0, 0, 0);
     opacity: 1;
-    stroke: #000;
+    stroke: #777;
   }
 }
 </style>

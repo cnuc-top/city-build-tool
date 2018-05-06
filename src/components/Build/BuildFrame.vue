@@ -1,30 +1,23 @@
 <style lang='stylus'>
-.build-secound {
+.build-frame {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  stroke: #000;
+  fill: rgba(0, 0, 0, 0);
+  opacity: 0.1;
 
   .svg-path {
     position: absolute;
     left: 0px;
     top: 0px;
   }
-
-  &__clip {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    left: 0px;
-  }
 }
 </style>
 <template>
-  <div class="build-secound" :style="{width: width + 'px', height: height + 'px'}">
-    <div class="build-secound__clip" :style="{clip: 'rect(' + clipHeight + 'px, ' + width + 'px, ' + height + 'px, 0px)'}">
-      <svg-path v-for="(item, index) in secounds" :key="index" :width="width" :height="height" :path="item[0]" :fill="item[1]"></svg-path>
-    </div>
+  <div class="build-frame" :style="{width: width + 'px', height: height + 'px'}">
+    <svg-path v-for="(item, index) in secounds" :key="index" :width="width" :height="height" :path="item[0]"></svg-path>
   </div>
 </template>
 
@@ -36,7 +29,6 @@ export default {
   props: {
     width: Number,
     height: Number,
-    layers: Number,
     process: Number,
     secounds: Array
   },

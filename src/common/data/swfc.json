@@ -8,7 +8,7 @@
   "process": {
     "basic": 100,
     "layers": 101,
-    "second": 101
+    "second": 50
   },
   "secounds": [
     ["M82,0V492H40C45.36,279.74,49.55,162.41,82,0Z", "#226BAC"],

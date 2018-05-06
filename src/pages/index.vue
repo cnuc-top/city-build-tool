@@ -1,8 +1,8 @@
 <style lang='stylus'>
 .main {
-  border: 1px solid #CCC;
-  width: 500px;
-  height: 1000px;
+  border: 2px solid #CCC;
+  width: 300px;
+  height: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -20,27 +20,53 @@
   position: relative;
   margin: 0 auto;
 
-  .build-structure, .build-secound {
+  .build-structure, .build-secound, .build-frame {
     position: absolute;
     bottom: 0px;
   }
 
+  .build-frame {
+    z-index: 1;
+  }
+
   .build-secound {
+    z-index: 2;
     opacity: 0.8;
   }
 }
 </style>
 <template>
   <div>
-    <div class="main">
-      <div class="build-top">
-        <div class="build-main" :style="{width: width + 'px', height: height + 'px'}">
-          <build-structure :path="structure" :width="width" :height="height" :layers="layers" :layersNow="process.layers"></build-structure>
-          <build-secound :width="width" :height="height" :secounds="secounds"></build-secound>
+
+    <el-row :gutter="20">
+      <el-col :span="12">
+
+        <div class="main">
+          <div class="build-top">
+            <div class="build-main" :style="{width: width + 'px', height: height + 'px'}">
+              <build-structure :path="structure" :width="width" :height="height" :layers="layers" :layersNow="process.layers"></build-structure>
+              <build-secound :width="width" :height="height" :layers="layers" :secounds="secounds" :process="process.second"></build-secound>
+              <build-frame v-show="form.showFrame" :width="width" :height="height" :secounds="secounds"></build-frame>
+            </div>
+          </div>
+          <build-base v-if="form.showBase" :width="width" :height="height"></build-base>
         </div>
-      </div>
-      <build-base :width="width" :height="height"></build-base>
-    </div>
+      </el-col>
+      <el-col :span="12">
+        <el-form :model="form" label-width="100px">
+          <el-form-item label="显示">
+            <el-checkbox label="框架" name="frame" v-model="form.showFrame"></el-checkbox>
+            <el-checkbox label="地基" name="frame" v-model="form.showBase"></el-checkbox>
+          </el-form-item>
+          <el-form-item label="主体结构">
+            <el-input-number v-model="process.layers" :min="0" :max="layers" label="描述文字"></el-input-number>
+          </el-form-item>
+          <el-form-item label="二次结构">
+            <el-input-number v-model="process.second" :min="0" :max="layers" label="描述文字"></el-input-number>
+          </el-form-item>
+        </el-form>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -48,9 +74,10 @@
 import BuildBase from '@/components/Build/BuildBase'
 import BuildStructure from '@/components/Build/BuildStructure'
 import BuildSecound from '@/components/Build/BuildSecound'
+import BuildFrame from '@/components/Build/BuildFrame'
 import BuildData from '@/common/data/swfc'
 export default {
-  components: { BuildBase, BuildStructure, BuildSecound },
+  components: { BuildBase, BuildStructure, BuildSecound, BuildFrame },
 
   props: {
   },
@@ -58,6 +85,13 @@ export default {
   data() {
     return {
       ...BuildData,
+      form: {
+        showFrame: false,
+        showBase: true,
+        visibles: {
+          frame: true
+        }
+      }
     }
   },
 
