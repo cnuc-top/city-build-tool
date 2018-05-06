@@ -1,11 +1,12 @@
 <style lang='stylus'>
-.build-base {
+.build-layler {
+  height: 5px;
+  width: 100%;
+  border-top: 1px solid #777;
 }
 </style>
 <template>
-  <div>
-
-  </div>
+  <div class="build-layler" :style="{height: height + 'px'}"></div>
 </template>
 
 <script>
@@ -13,7 +14,6 @@ export default {
   components: {},
 
   props: {
-    width: Number,
     height: Number
   },
 

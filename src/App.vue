@@ -19,4 +19,11 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
 </style>
