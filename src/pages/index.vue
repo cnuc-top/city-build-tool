@@ -11,8 +11,9 @@
 <template>
   <div>
     <div class="main">
-      <build-structure :width="width" :height="height" :layers="layers"></build-structure>
+      <build-structure :path="structure" :width="width" :height="height" :layers="layers" :layersNow="process.layers"></build-structure>
       <build-base :width="width" :height="height"></build-base>
+      <build-secound :width="width" :height="height" :secounds="secounds" :process="process.second" ></build-secound>
     </div>
   </div>
 </template>
@@ -21,6 +22,7 @@
 import BuildBase from '@/components/Build/BuildBase'
 import BuildStructure from '@/components/Build/BuildStructure'
 import BuildSecound from '@/components/Build/BuildSecound'
+import BuildData from '@/common/data/swfc'
 export default {
   components: { BuildBase, BuildStructure, BuildSecound },
 
@@ -29,6 +31,7 @@ export default {
 
   data() {
     return {
+      ...BuildData,
       height: 492,
       width: 82,
       layers: 101,
@@ -39,8 +42,13 @@ export default {
       ],
       process: {
         basic: 100,
-        layers: 5,
-        second: 6
+        layers: 101,
+        second: 101
+      },
+      colors: {
+        path1: '#CCC',
+        path2: '#DDD',
+        path3: '#DDD'
       }
     }
   },

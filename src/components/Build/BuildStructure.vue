@@ -1,56 +1,86 @@
 <style lang='stylus'>
 .build-structure {
   height: 800px;
-  background: #EEE;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: flex-end;
+  // position: absolute;
+  // left: 0px;
+  // bottom: 0px;
+  // width: 100%;
   .structure {
     margin: 0 auto;
     position: relative;
-    clip-path: url('#bs-structure');
-    // clip-path: circle(30px at 35px 35px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    clip-path: url('#structure-clip');
   }
-}
 
-.build-layers {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
+  .build-layers {
+    overflow: hidden;
+    position: relative;
 
-.build-svg {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  opacity: 0.5;
+    .svg-path {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+    }
+  }
+
+  .build-svg {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 0.1;
+  }
+
+  #structure-clip {
+    fill: rgba(0, 0, 0, 0);
+  }
+
+  .structure-clip {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+  }
+
+  #structure-layers {
+    fill: rgba(0, 0, 0, 0);
+    opacity: 1;
+    stroke: #000;
+  }
 }
 </style>
 <template>
   <div class="build-structure">
     <div class="structure" :style="{width: width + 'px', height: height + 'px'}">
-
-
-      <build-svg></build-svg>
-      <div class="build-layers" :style="{width: width + 'px'}">
-        <build-layer :height="layerHeight" v-for="(item, index) in layersData" :key="index">1</build-layer>
+      <div class="build-layers">
+        <svg-path :width="width" :height="height" :path="path" id="structure-layers"></svg-path>
+        <build-layer :height="layerHeight" v-for="(item, index) in layersDataNow" :key="index"></build-layer>
       </div>
+      <svg-path :clip="true" class="structure-clip" :width="width" :height="height" :path="path" id="structure-clip"></svg-path>
     </div>
   </div>
 </template>
 
 <script>
 import BuildLayer from '@/components/Build/BuildLayer'
-import BuildSvg from '@/components/Build/BuildSvg'
+import SvgPath from '@/components/Svg/SvgPath'
 export default {
-  components: { BuildLayer, BuildSvg },
+  components: { BuildLayer, SvgPath },
 
   props: {
     width: Number,
     height: Number,
+    path: String,
     layers: Number,
-    layersDetail: Array
+    layersDetail: Array,
+    layersNow: Number
   },
 
   data() {
@@ -62,6 +92,11 @@ export default {
   computed: {
     layersData() {
       const arr = new Array(this.layers)
+      arr.fill(0)
+      return arr
+    },
+    layersDataNow() {
+      const arr = new Array(this.layersNow)
       arr.fill(0)
       return arr
     },
