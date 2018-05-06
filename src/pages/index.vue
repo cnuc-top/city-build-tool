@@ -6,14 +6,40 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  // align-items: center;
+}
+
+.build-top {
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.build-main {
+  position: relative;
+  margin: 0 auto;
+
+  .build-structure, .build-secound {
+    position: absolute;
+    bottom: 0px;
+  }
+
+  .build-secound {
+    opacity: 0.8;
+  }
 }
 </style>
 <template>
   <div>
     <div class="main">
-      <build-structure :path="structure" :width="width" :height="height" :layers="layers" :layersNow="process.layers"></build-structure>
+      <div class="build-top">
+        <div class="build-main" :style="{width: width + 'px', height: height + 'px'}">
+          <build-structure :path="structure" :width="width" :height="height" :layers="layers" :layersNow="process.layers"></build-structure>
+          <build-secound :width="width" :height="height" :secounds="secounds"></build-secound>
+        </div>
+      </div>
       <build-base :width="width" :height="height"></build-base>
-      <build-secound :width="width" :height="height" :secounds="secounds" :process="process.second" ></build-secound>
     </div>
   </div>
 </template>
@@ -32,24 +58,6 @@ export default {
   data() {
     return {
       ...BuildData,
-      height: 492,
-      width: 82,
-      layers: 101,
-      layersUnder: 3,
-      layersDetail: [
-        [1, 3, 4.2],
-        [4, 101, 3]
-      ],
-      process: {
-        basic: 100,
-        layers: 101,
-        second: 101
-      },
-      colors: {
-        path1: '#CCC',
-        path2: '#DDD',
-        path3: '#DDD'
-      }
     }
   },
 

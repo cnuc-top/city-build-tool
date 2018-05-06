@@ -1,7 +1,17 @@
 <style lang='stylus'>
+.build-secound {
+  position: relative;
+
+  .svg-path {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
+}
 </style>
 <template>
-  <div>
+  <div class="build-secound" :style="{width: width + 'px', height: height + 'px'}">
+    <svg-path v-for="(item, inedx) in secounds" :width="width" :height="height" :path="item[0]" :fill="item[1]"></svg-path>
 
   </div>
 </template>
@@ -14,9 +24,7 @@ export default {
   props: {
     width: Number,
     height: Number,
-    path: String,
-    layers: Number,
-    layersNow: Number
+    secounds: Number
   },
 
   data() {

@@ -4,14 +4,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: flex-end;
-  // position: absolute;
-  // left: 0px;
-  // bottom: 0px;
-  // width: 100%;
   .structure {
     margin: 0 auto;
     position: relative;
