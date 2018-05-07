@@ -1,0 +1,20 @@
+{
+  "name": "宁波商会国贸中心",
+  "local": "宁波",
+  "width": 50,
+  "height": 228,
+  "layers": 48,
+  "process": {
+    "basic": 100,
+    "layers": 61,
+    "second": 50
+  },
+  "structure":
+    "",
+  "secounds": [
+    [
+      "",
+      "#226BAC"
+    ]
+  ]
+}

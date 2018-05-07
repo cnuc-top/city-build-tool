@@ -1,0 +1,20 @@
+{
+  "name": "宁波香格国际广场",
+  "local": "宁波",
+  "width": 50,
+  "height": 208,
+  "layers": 54,
+  "process": {
+    "basic": 100,
+    "layers": 61,
+    "second": 50
+  },
+  "structure":
+    "",
+  "secounds": [
+    [
+      "",
+      "#226BAC"
+    ]
+  ]
+}

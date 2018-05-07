@@ -2,7 +2,7 @@
 .main {
   border: 2px solid #CCC;
   width: 300px;
-  height: 900px;
+  height: 650px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
 }
 
 .build-top {
-  height: 800px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -45,10 +45,8 @@
 </style>
 <template>
   <div>
-
     <el-row :gutter="20">
       <el-col :span="12">
-
         <div class="main">
           <div class="build-top">
             <div class="build-main" :style="{width: width + 'px', height: height + 'px'}">
@@ -72,10 +70,10 @@
               <el-slider v-model="process.basic"></el-slider>
             </el-form-item>
             <el-form-item label="主体结构">
-              <el-input-number v-model="process.layers" :min="0" :max="layers" label="描述文字"></el-input-number>
+              <el-slider v-model="process.layers" :min="0" :max="layers"></el-slider>
             </el-form-item>
             <el-form-item label="二次结构">
-              <el-input-number v-model="process.second" :min="0" :max="layers" label="描述文字"></el-input-number>
+              <el-slider v-model="process.second" :min="0" :max="layers"></el-slider>
             </el-form-item>
           </el-form>
         </div>
@@ -89,7 +87,7 @@ import BuildBase from '@/components/Build/BuildBase'
 import BuildStructure from '@/components/Build/BuildStructure'
 import BuildSecound from '@/components/Build/BuildSecound'
 import BuildFrame from '@/components/Build/BuildFrame'
-import BuildData from '@/common/data/swfc'
+import BuildData from '@/common/data/ningbo/nbc'
 export default {
   components: { BuildBase, BuildStructure, BuildSecound, BuildFrame },
 

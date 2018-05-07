@@ -9,6 +9,7 @@
     position: absolute;
     left: 0px;
     top: 0px;
+    opacity: 0.8;
   }
 
   &__clip {

@@ -54,7 +54,7 @@ export default {
   },
   computed: {
     w() {
-      return this.width + 80
+      return this.width + 40
     },
     barsHeight() {
       return parseInt(this.height / 10)
