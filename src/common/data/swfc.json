@@ -1,15 +1,17 @@
 {
-  "structure": "M0,0V492H82V0ZM61.86,56.5H20.6l-8.25-42H70.62Z",
-  "width": 82,
+  "name": "上海环球金融中心",
+  "local": "上海",
+  "width": 84,
   "height": 492,
   "layers": 101,
   "layersUnder": 3,
   "layersDetail": [[1, 3, 4.2], [4, 101, 3]],
   "process": {
-    "basic": 100,
-    "layers": 101,
+    "basic": 1,
+    "layers": 61,
     "second": 50
   },
+  "structure": "M0,0V492H82V0ZM61.86,56.5H20.6l-8.25-42H70.62Z",
   "secounds": [
     ["M82,0V492H40C45.36,279.74,49.55,162.41,82,0Z", "#226BAC"],
     ["M0,0V492H42C36.64,279.74,32.45,162.41,0,0Z", "#226BAC"],
